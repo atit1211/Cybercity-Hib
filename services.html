@@ -1,0 +1,391 @@
+<html>
+    <head>
+        <link rel="stylesheet" href="style.css">
+        <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js" type="text/javascript"></script><!--understand the use of this -->
+    </head>
+    <body>
+        <table class="page_tbl">
+            <tr>
+                <td align="center" class="page_cell2">
+                    <h1 style="color: #000;" class="before_otp">Pay/Add/Remove Services</h1>
+                    <table>
+                        <tr>
+                            <td class="labl2 before_otp">UID:</td>
+                            <td>
+                                <input type="text" name="uid" id="uid" class="inp_field2 before_otp">
+                            </td>
+                            <td><button class="btn before_otp" onclick="send_otp()">Get OTP</button></td>
+                        </tr>
+                        <tr class="after_get_otp">
+                            <td class="labl2">OTP:</td>
+                            <td><input type="text" name="otp" id="otp" class="inp_field2"></td>
+                            <td><button class="btn" onclick="check_otp()">GO</button></td>
+                          </tr>
+                        <tr class="after_get_otp">
+                            <td colspan="3" id="prompt" class="labl2" style="text-align: center;"></td>
+                        </tr>
+                        <tr class="after_go">
+                            <td><button class="btn" onclick="show_pay()">PAY</button></td>
+                            <td><button class="btn" onclick="show_services()">Add/Remove</button></td>
+                            <td></td>
+                        </tr>
+                    </table>
+                </td>
+                <td class="page_cell1">
+                    <div id="payment" align="center">
+                        <table align="center" cellspacing="10px">
+                            <tr>
+                                <td class="labl">Card Number:</td>
+                                <td><input type="text" name="cnum" id="cnum" class="inp_field"></td>
+                            </tr>
+                            <tr>
+                                <td class="labl">Name On Card:</td>
+                                <td><input type="text" name="cname" id="cname" class="inp_field"></td>
+                            </tr>
+                            <tr>
+                                <td class="labl">Expiry Date:</td>
+                                <td>
+                                    <select name="month" id="exp2" class="inp_field">
+                                        <option value="1">January</option>
+                                        <option value="2">Febuary</option>
+                                        <option value="3">March</option>
+                                        <option value="4">April</option>
+                                        <option value="5">May</option>
+                                        <option value="6">June</option>
+                                        <option value="7">July</option>
+                                        <option value="8">August</option>
+                                        <option value="9">Septmber</option>
+                                        <option value="10">October</option>
+                                        <option value="11">November</option>
+                                        <option value="12">December</option>
+                                      </select>
+                                      <select name="year" id="exp3" class="inp_field">
+                                        <option value="2020">2020</option>
+                                        <option value="2021">2021</option>
+                                        <option value="2022">2022</option>
+                                        <option value="2023">2023</option>
+                                        <option value="2024">2024</option>
+                                        <option value="2025">2025</option>
+                                        <option value="2026">2026</option>
+                                        <option value="2027">2027</option>
+                                        <option value="2028">2028</option>
+                                        <option value="2029">2029</option>
+                                        <option value="2030">2030</option>
+                                        <option value="2031">2031</option>
+                                        <option value="2032">2032</option>
+                                        <option value="2033">2033</option>
+                                        <option value="2034">2034</option>
+                                        <option value="2035">2035</option>
+                                        <option value="2036">2036</option>
+                                        <option value="2037">2037</option>
+                                        <option value="2038">2038</option>
+                                        <option value="2039">2039</option>
+                                        <option value="2040">2040</option>
+                                      </select>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="labl">CVV:</td>
+                                <td><input type="password" name="cvv" id="cvv" class="inp_field"></td>
+                            </tr>
+                            <tr>
+                                <td colspan="2"><center><p id="pay_prompt" style="color: red; font-size: 25px;"></p></center></td>
+                            </tr>
+                            <tr>
+                                <td colspan="2"><center><button class="btn" onclick="sub_pay()">CONFIRM PAY</button></center></td>
+                            </tr>
+                        </table>
+                    </div>
+                    <div id="select_service">
+                        <p align="center" style="color: #fff; font-size:25px;">Select Services to start/Stop:</p>
+                        <label for="Internet" class="labl2">Internet :</label><br>
+                        <input type="radio" class="radio_btn" name="internet" id="internet" value="0"><span class="r_option2">Don't want to avail service  </span><br>
+                        <input type="radio" class="radio_btn" name="internet" id="internet" value="1"><span class="r_option2">Pack 1:  200 GB FUP    100 Mbps upload/download speed  Rs.500.00 per month </span><br>
+                        <input type="radio" class="radio_btn" name="internet" id="internet" value="2"><span class="r_option2">Pack 2: 1200 GB FUP   1000 Mbps upload/download speed  Rs.1000.00 per month </span><br>
+                        <br>
+                        <br>
+                        <label for="cabletv" class="labl2">Cable TV :</label><br>
+                        <input type="radio" class="radio_btn" name="cabletv" id="cabletv" value="0"><span class="r_option2">Don't want to avail the service</span><br>
+                        <input type="radio" class="radio_btn" name="cabletv" id="cabletv" value="1"><span class="r_option2">Pack 1: Basic, Essential, Free channels  Rs.300.00 per month </span><br>
+                        <input type="radio" class="radio_btn" name="cabletv" id="cabletv" value="2"><span class="r_option2">Pack 2: All Paid channels Rs.600.00 per month</span><br>
+                        <br>
+                        <br>
+                        <label for="lpg" class="labl2">LPG to Home :</label><br>
+                        <input type="radio" class="radio_btn" name="lpg" id="lpg" value="0"><span class="r_option2">Don't want to avail the service</span><br>
+                        <input type="radio" class="radio_btn" name="lpg" id="lpg" value="1"><span class="r_option2">Start Service for Rs.350.00 per month</span><br>
+                        <br>
+                        <br>
+                        <label for="electricity" class="labl2">Electricity :</label><br>
+                        <input type="radio" class="radio_btn" name="electricity" id="electricity" value="0"><span class="r_option2">Don't want to avail the service</span><br>
+                        <input type="radio" class="radio_btn" name="electricity" id="electricity" value="1"><span class="r_option2">Start Service for Rs.500.00 per month</span><br>
+                        <br>
+                        <br>
+                        <center><button class="btn" align="center" id="sub_btn2" onclick="sub_data()">Confirm Submit</button></center>
+                    </div>
+                    <div id="end_prompt"></div>
+                </td>
+            </tr>
+        </table>
+    </body>
+    <script>
+        var i,otp,email,uid,amount;
+        ele_after_get_otp=document.getElementsByClassName("after_get_otp");
+        for(i=0;i<ele_after_get_otp.length;i++)
+        {
+            ele_after_get_otp[i].style.display="none";
+        }
+        ele_after_go=document.getElementsByClassName("after_go");
+        for(i=0;i<ele_after_go.length;i++)
+        {
+            ele_after_go[i].style.display="none";
+        }
+        document.getElementById("select_service").style.display="none";
+        document.getElementById("payment").style.display="none";
+        document.getElementById("end_prompt").style.display="none";
+        // DO AFTER CLICKING THE GET OTP BUTTON
+        function send_otp()
+        {
+            //var email=jQuery('#email').val();
+            uid=document.getElementById('uid').value;
+            var call=$.ajax(
+                {
+                    url:"service_dbms.php",
+                    type:'post',
+                    async:false,
+                    data:{uid:uid,status:1},
+                    success:function(result){
+
+                    }
+                }
+            );
+            email = call.responseText;
+            console.log(email);
+            if(email != "fail")
+            {
+            otp=(Math.floor(Math.random()*99999)+11111);
+            var call=$.ajax({
+                        url:'otp.php',
+                        type:'post',
+                        async:false,
+                        data:{email:email, status:1,otp:otp},
+                        success:function(result)
+                        {
+                            //console.log(result);
+                            //setInterval('location.reload(false)');
+                        }
+                    });
+                    console.log(call.responseText);
+            document.getElementById("prompt").innerHTML="Check E-mail for OTP";
+            document.getElementById("prompt").style.color="#000"
+            for(i=0;i<ele_after_get_otp.length;i++)
+            {
+                ele_after_get_otp[i].style.display="table-row";
+            }
+            document.getElementById("otp").value='';
+            }
+            else
+            {
+            document.getElementById("prompt").innerHTML="UID Does Not Exist Try Again";
+            document.getElementById("prompt").style.color="#f00"
+            ele_after_get_otp[1].style.display="table-row";
+            }
+            
+        }
+        
+        //DO AFTER GO BUTTON
+        function check_otp()
+        {
+            var chk_otp=document.getElementById("otp").value;
+            console.log(otp,chk_otp);
+            if(otp==chk_otp)
+            {
+                var call=$.ajax({
+                            url:'otp.php',
+                            type:'post',
+                            async:false,
+                            data:{email:email, status:2,otp:chk_otp},
+                            success:function(result)
+                            {
+                                //console.log(result);
+                                //setInterval('location.reload(false)');
+                            }
+                        });
+                console.log(call.responseText);
+                if(call.responseText=="fail")
+                {
+                    document.getElementById("prompt").innerHTML="OTP Expired! Click get OTP for a new OTP";
+                    document.getElementById("prompt").style.color="#f00" 
+                }
+                else
+                {
+                    document.getElementById("prompt").style.display="none";
+                    for(i=0;i<ele_after_go.length;i++)
+                    {
+                    ele_after_go[i].style.display="table-row";
+                    }
+                }
+            }
+            else
+            {
+                document.getElementById("prompt").innerHTML="INVALID OTP Try Again";
+                document.getElementById("prompt").style.color="#f00"
+            }
+        }
+
+        function show_pay()
+        {
+            document.getElementById("payment").style.display="block";
+            amount=0;
+            var call=$.ajax({
+                    url:'service_dbms.php',
+                    type:'post',
+                    async:false,
+                    data:{uid:uid,status:5},
+                    success:function(result)
+                    {
+                        //console.log(result);
+                        //setInterval('location.reload(false)');
+                    }
+               });
+            var res=call.responseText;
+            if(res=="pass")
+            {
+                var call=$.ajax({
+                    url:'service_dbms.php',
+                    type:'post',
+                    async:false,
+                    data:{uid:uid,status:2},
+                    success:function(result)
+                    {
+                        //console.log(result);
+                        //setInterval('location.reload(false)');
+                    }
+                });
+                var str=call.responseText; 
+                console.log(call.responseText);
+                var res=str.split(" ");
+                var a1=Number(res[0])*500;
+                var a2=Number(res[1])*300;
+                var a3=Number(res[2])*350;
+                var a4=Number(res[3])*500;
+                amount=a1+a2+a3+a4;
+            }
+                console.log(amount);
+                document.getElementById("pay_prompt").innerHTML="Total amount : "+amount.toString();
+        }
+        function sub_pay()
+        {
+            var cnum=document.getElementById('cnum').value;
+            var cname=document.getElementById('cname').value;
+            var exp=document.getElementById("exp3").value+"-"+document.getElementById("exp2").value+"-01";
+            var cvv=Number(document.getElementById('cvv').value);
+            var call=$.ajax(
+                    {
+                        url:'service_dbms.php',
+                        type:'post',
+                        async:false,
+                        data:{email:email,uid:uid,cnum:cnum,exp:exp,cvv:cvv,amount:amount,status:4}
+                    }
+            )
+
+            cls_page();
+            var ele_before_otp =document.getElementsByClassName("before_otp");
+            for(var i=0;i<ele_before_otp.length;i++)
+            {
+                ele_before_otp[i].style.display="none";
+            }
+            document.getElementById("end_prompt").innerHTML="Payment Accepted <br> Successfully!!!";
+            document.getElementById("end_prompt").style.display="block";
+        }
+        function show_services()
+        {
+            var call=$.ajax({
+                    url:'service_dbms.php',
+                    type:'post',
+                    async:false,
+                    data:{uid:uid,status:2},
+                    success:function(result)
+                    {
+                        //console.log(result);
+                        //setInterval('location.reload(false)');
+                    }
+                });
+                var str=call.responseText;
+                console.log(call.responseText);
+                var res=str.split(" ");
+            var ele1=document.getElementsByName("internet");
+            var ele2=document.getElementsByName("cabletv");
+            var ele3=document.getElementsByName("lpg");
+            var ele4=document.getElementsByName("electricity");
+            var num=Number(res[0]);
+            ele1[num].checked=true;
+            var num=Number(res[1]);
+            ele2[num].checked=true;
+            var num=Number(res[2]);
+            ele3[num].checked=true;
+            var num=Number(res[3]);
+            ele4[num].checked=true;
+            document.getElementById("select_service").style.display="block";
+
+        }
+        function sub_data()
+        {
+            var internet,cabletv,lpg,electricity;
+            ele=document.getElementsByName("internet");
+            for(var i=0;i<ele.length;i++){
+            if(ele[i].checked){
+                internet=ele[i].value;
+                }
+            }
+            ele=document.getElementsByName("cabletv");
+            for(var i=0;i<ele.length;i++){
+            if(ele[i].checked){
+                cabletv=ele[i].value;
+                }
+            }
+            ele=document.getElementsByName("lpg");
+            for(var i=0;i<ele.length;i++){
+            if(ele[i].checked){
+                lpg=ele[i].value;
+                }
+            }
+            ele=document.getElementsByName("electricity");
+            for(var i=0;i<ele.length;i++){
+            if(ele[i].checked){
+                electricity=ele[i].value;
+                }
+            }
+            var call=$.ajax(
+                    {
+                        url:'service_dbms.php',
+                        type:'post',
+                        data:{uid:uid,internet:internet,cabletv:cabletv,lpg:lpg,electricity:electricity,status:3}
+                    }
+                );
+            cls_page();
+            var ele_before_otp =document.getElementsByClassName("before_otp");
+            for(var i=0;i<ele_before_otp.length;i++)
+            {
+                ele_before_otp[i].style.display="none";
+            }
+            document.getElementById("end_prompt").innerHTML="Services Updated <br> Successfully!!!";
+            document.getElementById("end_prompt").style.display="block";
+
+        }
+        function cls_page(){
+            ele_after_get_otp=document.getElementsByClassName("after_get_otp");
+            for(i=0;i<ele_after_get_otp.length;i++)
+            {
+                ele_after_get_otp[i].style.display="none";
+            }
+            ele_after_go=document.getElementsByClassName("after_go");
+            for(i=0;i<ele_after_go.length;i++)
+            {
+                ele_after_go[i].style.display="none";
+            }
+            document.getElementById("select_service").style.display="none";
+            document.getElementById("payment").style.display="none";
+        }
+
+    </script>
+</html>

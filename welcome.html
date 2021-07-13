@@ -1,0 +1,79 @@
+<html>
+  <head>
+    <link rel="stylesheet" href="style.css" />
+    
+  </head>
+  <body>
+    <center>
+      <p style="font-size: 200px">
+        Welcome to<br />
+        CYBERCITY<sup style="font-size: 120px; color: #f00">HUB</sup>
+      </p>
+      <p style="font-size: 40px">
+        Your one stop for all the
+        Information and Services for<br />Cybercity
+      </p>
+      <br>
+      <br>
+      <button class="btn" id="info_btn" onclick="show_cards()">Click To Know More</button>
+      <table id="info">
+        <tr id="info_ space">
+          <td >
+            <button class="btn" id="back" onclick="change_cards(-1)" style="float: left;">Back</button>
+          </td>
+          <td>
+            <p class="info_cards" id="1">cybercity is a small but advanced city located on the in the central peninsula.</p> 
+            <p class="info_cards" id="2">it has a beautiful architecture and structures that represent the mix of modern and medieval times.</p>
+            <p class="info_cards" id="3">people often visit the city to experience the breathtakingly parks and views.</p>
+            <p class="info_cards" id="4">companies open offices because IT nature of the city.</p> 
+            <p class="info_cards" id="5">the city was constructed keeping in mind the need of the future and growth of population with its booming popularity in tourism and work culture.</p>
+            <p class="info_cards" id="6">the city is also known for its advanced nature of adopting technologies and methods.</p>
+            <p class="info_cards" id="7">the citizens here enjoy the pleasant year-round weather and the availability of multi-cuisine food.</p> 
+            <p class="info_cards" id="8">The city has a medium size population but is expected to grow in the future.</p>
+            <p class="info_cards" id="9">The city is connected to the outside world with multiple highways and a world-class airport.</p>
+            <p class="info_cards" id="10">the cybercity international airport is located on the west side of the city and provides means for cargo, international and domestic visitors.</p>
+            <p class="info_cards" id="11">the airport has the capacity to welcome and service not only regional narrow body jets but also the largest of cargo and wide body jets with ease.</p>
+          </td>
+          <td>
+            <button class="btn" id="next" onclick="change_cards(1)">Next</button>
+          </td>
+        </tr>
+        </table>
+
+
+    </center>
+    <script>
+      var i,itr,info_cards;
+      var cur_shown=0;
+      info_cards=document.getElementsByClassName("info_cards");
+      for(i=0;i<info_cards.length; i++)
+      {
+        info_cards[i].style.display ="none";
+      }
+      document.getElementById("info").style.display="none";
+      document.getElementById("back").style.display="none";
+      document.getElementById("next").style.display="none";
+      function show_cards(){
+        document.getElementById("info_btn").style.display="none";
+        document.getElementById("info").style.display="block";
+        document.getElementById("next").style.display="block";
+        document.getElementById("back").style.display="block";
+        info_cards[cur_shown].style.display="block";
+      }
+      function change_cards(stat){
+        info_cards[cur_shown].style.display="none";
+        if(cur_shown==0 && stat==-1){
+          document.getElementById("info_btn").style.display="block";
+        document.getElementById("info").style.display="none";
+        document.getElementById("next").style.display="none";
+        document.getElementById("back").style.display="none"; 
+        }
+        else if(!(cur_shown==10 && stat==1))
+        {
+          cur_shown=cur_shown+stat
+        }
+        info_cards[cur_shown].style.display="block";
+      }
+    </script>
+  </body>
+</html>

@@ -1,0 +1,373 @@
+<html>
+    <head>
+        <link rel="stylesheet" href="style.css">
+        <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js" type="text/javascript"></script><!--understand the use of this -->
+    </head>
+    <body>
+        <table class="page_tbl">
+            <tr>
+                <td class="page_cell1" align="center">
+                    <table cellspacing="10px" id="options">
+                        <tr align="center">
+                            <td><h1>Welcome to RTO select an option</h1></td>
+                        </tr>
+                        <tr align="center">
+                            <td><button class="btn" onclick="show_ll()">Apply For Learners License</button></td>
+                        </tr>
+                        <tr align="center">
+                            <td><button class="btn" onclick="show_dl()">Apply For Drivers License</button></td>
+                        </tr>
+                        <tr align="center">
+                            <td><a href="files/map/rto.svg" target="f1"><button class="btn">Locate RTO</button></a></td>
+                        </tr>
+                        <tr align="center">
+                            <td id="prompt" class="labl" style="text-align:center;"></td>
+                        </tr>
+                    </table>
+                    <table align="center" cellspacing="10px" class="ll">
+                        <tr>
+                            <td colspan="2" class="labl" align="center">Fill in the details and answer the questions on the right</td>
+                        </tr>
+                        <tr>
+                            <td class="labl">Name:</td>
+                            <td><input type="text" name="llname" id="llname" class="inp_field"></td>
+                        </tr>
+                        <tr>
+                            <td class="labl">Date Of Birth:</td>
+                            <td colspan="2">
+                              <select name="day" id="dob1" class="inp_field">
+                                <option value="1">1</option>
+                                <option value="2">2</option>
+                                <option value="3">3</option>
+                                <option value="4">4</option>
+                                <option value="5">5</option>
+                                <option value="6">6</option>
+                                <option value="7">7</option>
+                                <option value="8">8</option>
+                                <option value="9">9</option>
+                                <option value="10">10</option>
+                                <option value="11">11</option>
+                                <option value="12">12</option>
+                                <option value="13">13</option>
+                                <option value="14">14</option>
+                                <option value="15">15</option>
+                                <option value="16">16</option>
+                                <option value="17">17</option>
+                                <option value="18">18</option>
+                                <option value="19">19</option>
+                                <option value="20">20</option>
+                                <option value="21">21</option>
+                                <option value="22">22</option>
+                                <option value="23">23</option>
+                                <option value="24">24</option>
+                                <option value="25">25</option>
+                                <option value="26">26</option>
+                                <option value="27">27</option>
+                                <option value="28">28</option>
+                                <option value="29">29</option>
+                                <option value="30">30</option>
+                                <option value="31">31</option>
+                              </select>
+                              <select name="month" id="dob2" class="inp_field">
+                                <option value="1">January</option>
+                                <option value="2">Febuary</option>
+                                <option value="3">March</option>
+                                <option value="4">April</option>
+                                <option value="5">May</option>
+                                <option value="6">June</option>
+                                <option value="7">July</option>
+                                <option value="8">August</option>
+                                <option value="9">Septmber</option>
+                                <option value="10">October</option>
+                                <option value="11">November</option>
+                                <option value="12">December</option>
+                              </select>
+                              <select name="year" id="dob3" class="inp_field">
+                                <option value="1999">1999</option>
+                                <option value="2000">2000</option>
+                                <option value="2001">2001</option>
+                                <option value="2002">2002</option>
+                                <option value="2003">2003</option>
+                                <option value="2004">2004</option>
+                                <option value="2005">2005</option>
+                                <option value="2006">2006</option>
+                                <option value="2007">2007</option>
+                                <option value="2008">2008</option>
+                                <option value="2009">2009</option>
+                                <option value="2010">2010</option>
+                                <option value="2011">2011</option>
+                                <option value="2012">2012</option>
+                                <option value="2013">2013</option>
+                                <option value="2014">2014</option>
+                                <option value="2015">2015</option>
+                                <option value="2016">2016</option>
+                                <option value="2017">2017</option>
+                                <option value="2018">2018</option>
+                                <option value="2019">2019</option>
+                                <option value="2020">2020</option>
+                              </select>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="labl">E-Mail:</td>
+                            <td><input type="email" name="llemail" id="llemail" class="inp_field"></td>
+                        </tr>
+                    </table>
+                    <table align="center" cellspacing="10px" id="dl">
+                        <tr>
+                            <tr>
+                                <td colspan="2" align="center">Enter The Details:</td>
+                            </tr>
+                        </tr>
+                        <tr>
+                            <td class="labl">Lerners License Number:</td>
+                            <td><input type="text" name="llnum" id="llnum" class="inp_field"></td>
+                        </tr>
+                        <tr>
+                            <td class="labl">E-Mail</td>
+                            <td><input type="email" name="dlemail" id="dlemail" class="inp_field"></td>
+                        </tr>
+                        <tr>
+                            <td colspan="2" align="center"><button class="btn" onclick="dl_sub()">Submit</button></td>
+                        </tr>
+                        <tr>
+                            <td colspan="2" id="prompt2" class="labl" style="text-align:center;"></td>
+                        </tr>
+                    </table>
+                </td>
+                <td class="page_cell2">
+                    <div class="ll">
+                        <p class="labl2">Q1)Use of horn is prohibited:</p><br>
+                        <input type="radio" class="radio_btn" name="q1" id="q11" value="0"><span class="r_option">a. near schools and residential areas</span> <br>
+                        <input type="radio" class="radio_btn" name="q1" id="q12" value="1"><span class="r_option">b. on highways and toll stops </span><br>
+                        <input type="radio" class="radio_btn" name="q1" id="q13" value="2"><span class="r_option">c. near hospitals and court of law </span><br>
+                        <p class="labl2">Q2)overtaking is prohibited when</p><br>
+                        <input type="radio" class="radio_btn" name="q2" id="q21" value="0"><span class="r_option">a. it is night time</span> <br>
+                        <input type="radio" class="radio_btn" name="q2" id="q22" value="1"><span class="r_option">b. it is a 2 lane road</span> <br>
+                        <input type="radio" class="radio_btn" name="q2" id="q23" value="2"><span class="r_option">c. the road ahead is not clearly visible</span> <br>
+                        <p class="labl2">Q2)validity of pollution under control certificate</p><br>
+                        <input type="radio" class="radio_btn" name="q3" id="q31" value="0"><span class="r_option">a. 1 year </span><br>
+                        <input type="radio" class="radio_btn" name="q3" id="q32" value="1"><span class="r_option">b. 6 months</span> <br>
+                        <input type="radio" class="radio_btn" name="q3" id="q33" value="2"><span class="r_option">c. life of the vehical </span><br>
+                        <center><button class="btn" onclick="ll_sub()">Submit</button></center>
+                    </div>
+                </td>
+            </tr>
+        </table>
+    </body>
+    <script>
+        var ele_ll= document.getElementsByClassName("ll");
+        for(var i=0;i<ele_ll.length;i++)
+        {
+            ele_ll[i].style.display="none";
+        }
+        document.getElementById("dl").style.display="none"; 
+        function show_ll()
+        {
+            document.getElementById("options").style.display="none";
+            var ele_ll= document.getElementsByClassName("ll");
+            for(var i=0;i<ele_ll.length;i++)
+            {
+                ele_ll[i].style.display="block";
+            }   
+        }
+        function ll_sub()
+        {
+            var dob=document.getElementById("dob3").value+"-"+document.getElementById("dob2").value+"-"+document.getElementById("dob1").value;
+            var year=document.getElementById("dob3").value;
+            var month=document.getElementById("dob2").value;
+            var day=document.getElementById("dob1").value;
+            var today= new Date();
+            var age= today.getFullYear() - year;
+            if (today.getMonth() < month || (today.getMonth() == month && today.getDate() < day))
+            {
+                age--;
+            }
+            var name=document.getElementById("llname").value;
+            var email=document.getElementById("llemail").value;
+            var llnum=Math.floor((Math.random()*99999)+11111);
+            var ele,q1,q2,q3;
+            console.log("here");
+            ele=document.getElementsByName("q1");
+            for(var i=0;i<ele.length;i++){
+            if(ele[i].checked){
+                    q1=i;
+                }
+            }
+            ele=document.getElementsByName("q2");
+            for(var i=0;i<ele.length;i++){
+            if(ele[i].checked){
+                    q2=i;
+                }
+            }
+            ele=document.getElementsByName("q3");
+            for(var i=0;i<ele.length;i++){
+            if(ele[i].checked){
+                    q3=i;
+                }
+            }
+            console.log(q1,q2,q3);
+
+            if(age>=18)
+            {
+                if(q1==2 && q2==2 && q3==1)
+                {
+                        var call=$.ajax(
+                        {
+                            url:"rto_dbms.php",
+                            type:"post",
+                            async:false,
+                            data:{name:name,dob:dob,email:email,llnum:llnum,status:1}
+                        }
+                    );
+                    var ele_ll= document.getElementsByClassName("ll");
+                    for(var i=0;i<ele_ll.length;i++)
+                    {
+                        ele_ll[i].style.display="none";
+                    }
+                    document.getElementById("options").style.display="table";
+                    document.getElementById("prompt").innerHTML="Submitted Sucessfully <br> here is your learners License number <br> "+llnum.toString();
+                }
+                else
+                {
+                    var ele_ll= document.getElementsByClassName("ll");
+                    for(var i=0;i<ele_ll.length;i++)
+                    {
+                        ele_ll[i].style.display="none";
+                    }
+                    document.getElementById("options").style.display="table";
+                    document.getElementById("prompt").innerHTML="Your Answer Is Wrong";
+                    document.getElementById("llname").value='';
+                    document.getElementById("llemail").value='';
+                    ele=document.getElementsByName("q1");
+                    for(var i=0;i<ele.length;i++){
+                    if(ele[i].checked){
+                        ele[i].checked=false;
+                        break;
+                        }
+                    }
+                    ele=document.getElementsByName("q2");
+                    for(var i=0;i<ele.length;i++){
+                    if(ele[i].checked){
+                        ele[i].checked=false;
+                        break;
+                        }
+                    }
+                    ele=document.getElementsByName("q3");
+                    for(var i=0;i<ele.length;i++){
+                    if(ele[i].checked){
+                        ele[i].checked=false;
+                        break;
+                        }
+                    }
+                }
+            }
+            else
+            {
+                var ele_ll= document.getElementsByClassName("ll");
+                for(var i=0;i<ele_ll.length;i++)
+                {
+                    ele_ll[i].style.display="none";
+                }
+                document.getElementById("options").style.display="table";
+                document.getElementById("prompt").innerHTML="Sorry you cannot apply <br> you are underage!! <br> Only 18 and above allowed";
+
+                document.getElementById("llname").value='';
+                document.getElementById("llemail").value='';
+                ele=document.getElementsByName("q1");
+                for(var i=0;i<ele.length;i++){
+                if(ele[i].checked){
+                    ele[i].checked=false;
+                    break;
+                    }
+                }
+                ele=document.getElementsByName("q2");
+                for(var i=0;i<ele.length;i++){
+                if(ele[i].checked){
+                    ele[i].checked=false;
+                    break;
+                    }
+                }
+                ele=document.getElementsByName("q3");
+                for(var i=0;i<ele.length;i++){
+                if(ele[i].checked){
+                    ele[i].checked=false;
+                    break;
+                    }
+                }
+
+            }
+        }
+        function show_dl()
+        {
+
+            document.getElementById("options").style.display="none";
+            document.getElementById("dl").style.display="table";
+
+        }
+        function dl_sub()
+        {
+            var email=document.getElementById("dlemail").value;
+            var llnum=document.getElementById("llnum").value;
+            var dlnum=Math.floor((Math.random()*99999)+11111);
+            var call=$.ajax(
+                {
+                    url:"rto_dbms.php",
+                    type:"post",
+                    async:false,
+                    data:{llnum:llnum,status:4}
+                }
+            );
+            var res=call.responseText;
+            if(res=="pass")
+            {
+                var call=$.ajax(
+                    {
+                        url:'rto_dbms.php',
+                        type:'post',
+                        async:false,
+                        data:{llnum:llnum,status:3}
+                    }
+                );
+                var res=call.responseText;
+                if(res=="pass")
+                {
+                    var call =$.ajax(
+                        {
+                            url:"rto_dbms.php",
+                            type:"post",
+                            async:false,
+                            data:{dlnum:dlnum,email:email,llnum:llnum,status:2}
+                        }
+                    );
+                    document.getElementById("dl").style.display="none";
+                    document.getElementById("prompt").innerHTML="Successfully applied <br > here is your Drivers License number <br> "+dlnum.toString();
+                    document.getElementById("options").style.display="table";
+                    document.getElementById("dlemail").value='';
+                    document.getElementById("llnum").value='';
+                }
+                else
+                {
+                    document.getElementById("dl").style.display="none";
+                    document.getElementById("prompt").innerHTML="Sorry you cannot apply now <br> please wait for 30 days after the <br> issue if your learners license";
+                    document.getElementById("options").style.display="table";
+                    document.getElementById("dlemail").value='';
+                    document.getElementById("llnum").value='';
+                }
+
+
+
+                
+            }
+            else
+            {
+                document.getElementById("dl").style.display="none";
+                document.getElementById("prompt").innerHTML="Sorry no matching <br >Learners License Number found";
+                document.getElementById("options").style.display="table";
+                document.getElementById("dlemail").value='';
+                document.getElementById("llnum").value='';
+            }
+
+        }
+    </script>
+</html>
