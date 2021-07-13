@@ -17,9 +17,9 @@ if($status==1)//Sending OTP to new user
     $mail->SMTPAuth = true;
     $mail->Host = 'smtp.gmail.com';
     $mail->Port = 465;
-    $mail->Username = 'cybercityhub.service@gmail.com';
-    $mail->Password = '12cybercityhubA';
-    $mail->setFrom('cybercityhub.service@gmail.com');
+    $mail->Username = 'your email';
+    $mail->Password = 'your password';
+    $mail->setFrom('your email');
     $mail->addAddress($email);
     $mail->Subject = "CyberCity Hub OTP";
     $mail->Body = 'Your OTP is :- '.$otp."\n The OTP is valid for 5 minutes";
